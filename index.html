@@ -300,9 +300,9 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.1}
 .pc-btn:hover{background:rgba(255,255,255,.07)}
 .pc-btn svg{width:18px;height:18px}
 .in-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:28px;padding:24px}
-.in-stage{border-radius:16px;overflow:hidden;background:#071114;border:1px solid var(--line-d);aspect-ratio:16/10;display:grid;place-items:center;position:relative}
-.in-stage video,.in-stage img{width:100%;height:100%;object-fit:contain}
-.in-stage.portrait{aspect-ratio:auto;height:min(68vh,620px)}
+.in-stage{border-radius:16px;overflow:hidden;background:#071114;border:1px solid var(--line-d);aspect-ratio:16/9;max-width:100%;position:relative}
+.in-stage.is-img{aspect-ratio:4/3}
+.in-stage video,.in-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#071114}
 .in-note{position:absolute;bottom:12px;left:12px;padding:6px 10px;border-radius:8px;background:rgba(0,0,0,.6);font-size:12px}
 .in-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
 .in-tabs button{min-height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--line-d2);font-size:13px;color:var(--on-d-2)}
@@ -772,8 +772,8 @@ h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.025em;line-height:1.1}
   var box = document.getElementById('insight'), cur = 0, opener = null;
   function media(p, which) {
     var stage = document.getElementById('in-stage'), v = p.videos[which];
-    stage.classList.toggle('portrait', !!p.portrait && !!v);
-    stage.innerHTML = v ? '<video controls playsinline preload="metadata" poster="' + p.cover + '" src="' + v[1] + '"></video>'
+    stage.classList.toggle('is-img', !v);
+    stage.innerHTML = v ? '<video controls autoplay muted playsinline preload="auto" src="' + v[1] + '"></video>'
       : '<img src="' + p.cover + '" alt="' + esc(p.name) + ' screens">' + (p.id === 'osint' ? '<span class="in-note">Demo video coming soon</span>' : '');
     var items = p.videos.map(function (x, k) { return '<button type="button" role="tab" aria-selected="' + (k === which) + '" data-v="' + k + '">▶ ' + esc(x[0]) + '</button>'; });
     items.push('<button type="button" role="tab" aria-selected="' + (which === -1 || !v) + '" data-v="-1">Cover</button>');
