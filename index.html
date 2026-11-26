@@ -216,7 +216,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .portrait{aspect-ratio:1;border-radius:14px;overflow:hidden;background:#FFFFFF;display:grid;place-items:center}
 .portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;transition:transform .8s var(--ease)}
 .person:hover .portrait img{transform:scale(1.04)}
-.portrait.mark{background:var(--flood);color:var(--on-flood);font:900 54px var(--display);font-stretch:125%;letter-spacing:-.05em}
+.portrait.mark{background:var(--flood);color:var(--on-flood);font:900 clamp(40px,5vw,64px) var(--display);font-stretch:125%;letter-spacing:-.05em;transition:transform .5s var(--ease)}
+.portrait.mark.ink{background:var(--dark);color:var(--flood)}
+.portrait.mark.soft{background:var(--soft);color:var(--accent)}
+.person:hover .portrait.mark{transform:scale(.97)}
 .person h3{font:800 19px/1.15 var(--display);font-stretch:112%;letter-spacing:-.03em;margin:18px 6px 0}
 .person .label{display:block;margin:6px 6px 0;font-size:11px}
 
@@ -554,10 +557,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
       <div class="sec-head rv"><div><h2 id="team-h" class="d h2">Small team.<br><span class="a">Senior hands.</span></h2>
         <p class="lead">You talk directly to the people who build your product, not account managers.</p></div></div>
       <div class="team">
-        <div class="person rv"><div class="portrait"><img src="team/hamza.jpg" alt="Hamza Tufail, founder and CEO of Nexora" loading="lazy"></div><h3>Hamza Tufail</h3><span class="label">Founder &amp; CEO</span></div>
-        <div class="person rv"><div class="portrait"><img src="team/ahsan-nadeem.jpg" alt="Ahsan Nadeem, CTO of Nexora" loading="lazy"></div><h3>Ahsan Nadeem</h3><span class="label">CTO</span></div>
-        <div class="person rv"><div class="portrait"><img src="team/saad.jpg" alt="Saad Abrar, full-stack developer at Nexora" loading="lazy"></div><h3>Saad Abrar</h3><span class="label">Full-stack developer</span></div>
-        <div class="person rv"><div class="portrait mark" aria-hidden="true">QA</div><h3>QA &amp; content team</h3><span class="label">Testing &amp; product video</span></div>
+        <div class="person rv"><div class="portrait mark ink" aria-hidden="true">HT</div><h3>Hamza Tufail</h3><span class="label">Founder &amp; CEO</span></div>
+        <div class="person rv"><div class="portrait mark" aria-hidden="true">AN</div><h3>Ahsan Nadeem</h3><span class="label">CTO</span></div>
+        <div class="person rv"><div class="portrait mark ink" aria-hidden="true">SA</div><h3>Saad Abrar</h3><span class="label">Full-stack developer</span></div>
+        <div class="person rv"><div class="portrait mark soft" aria-hidden="true">QA</div><h3>QA &amp; content team</h3><span class="label">Testing &amp; product video</span></div>
       </div>
     </div>
   </section>
