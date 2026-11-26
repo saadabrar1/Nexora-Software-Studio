@@ -26,4 +26,4 @@ Works on GitHub Pages as is: **Settings → Pages → Deploy from branch → `ma
 
 ## Tech
 
-Plain HTML/CSS/JS, Plus Jakarta Sans and JetBrains Mono from Google Fonts, and [Motion](https://motion.dev) for the stats count-up and modal spring.
+Plain HTML/CSS/JS, Archivo (expanded), Geist and JetBrains Mono from Google Fonts. No frameworks or animation libraries.
